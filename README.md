@@ -3,7 +3,7 @@ This is a sorted [512-hashed array tree](https://en.wikipedia.org/wiki/Hashed_ar
 
 NOSHatMap stores key-value pairs, 32-bit hashes, and indices shift only. Its design is more closer to a perfect hash function than a hash map because of its slow insertion and deletion time.
 
-NOSHatMap doesn't have probing overhead, but it does have smaller searching overhead. It doesn't have resizing overhead that traditional hash maps have, which must rehash the whole hash map. But, it required all hash to be sorted. In NOSHatMap, this is delayed sort.
+NOSHatMap doesn't have probing overhead, but it does have smaller searching overhead. It doesn't have resizing overhead that traditional hash maps have, which must rehash the whole hash map. But, it required all hash to be sorted. In NOSHatMap, this is delayed.
 
 There's a thing called array if you want a 90% or higher load factor hash map. Or, design a hash map that only probes once 99% of the time.
 
@@ -20,3 +20,4 @@ There's a thing called array if you want a 90% or higher load factor hash map. O
 1.	To slow NOSHatMap down to O(n), the attacker must make sure every hash for the element is the same hash. Otherwise, it's usually O(log n) in the worst case. ✅
 2.	NOSHatMap will not copy or rehash existing elements when resizing ✅✅✅✅✅, it'll only allocate and deallocate vectors. The only exception for NOSHatMap is if its capacity is smaller than 512, then it'll copy existing elements to the resized leaf. 
 3.	The blocks are sorted with [Octal LSD radix sort](https://en.wikipedia.org/wiki/Radix_sort) rather than [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort).
+	- The prefix sum in the octal LSD radix sort is implemented with AVX2 XOR/cmpeq, movemask, and popcnt.

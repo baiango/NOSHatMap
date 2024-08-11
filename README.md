@@ -9,7 +9,7 @@ There's a thing called array if you want a 90% or higher load factor hash map. O
 
 # 🤭 Scalability overview
 | Operation | Best-Case Time | Average Case Time | Worst-Case Time |
-|---|---|---|---|---|
+|---|---|---|---|
 | **Sorted Insertion** (Insert at arbitrary position) | O(n) | O(n) | O(n) |
 | **Sorted Deletion** (Delete from arbitrary position) | O(n) | O(n) | O(n) |
 | **Search** (Binary interpolation search) | O(log log n) | O(log log n) | O(log n)[1] |

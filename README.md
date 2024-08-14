@@ -22,3 +22,6 @@ There's a thing called array if you want a 90% or higher load factor hash map. O
 3.	NOSHatMap is sorted with [Octal LSD radix sort](https://en.wikipedia.org/wiki/Radix_sort) and selection sort.
 	- The prefix sum in the octal LSD radix sort is implemented with AVX2 XOR/cmpeq, movemask, and popcnt.
 	- Selection sort is implemented with cmpeq, movemask, BSF, and permutevar.
+	- A sorting algorithm with a future computational pattern could be insisted that theoretically may perceived as achieved linear time under some specific implementation in AMD64 while maintaining constant space depending on the benchmark ran and the nature of the input data. <!--- insertion sort -->
+
+I'm done with NOSHatMap, we've grown apart.
